@@ -1,4 +1,4 @@
-# Weather_Conky_Config
+# Accuweather and Word of the Day Conky Config
 ![Screenshot](https://github.com/Mooseburger1/Weather_Conky_Config/blob/master/Images/Screenshot%20.png)
 
 
