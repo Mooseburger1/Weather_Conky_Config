@@ -1,0 +1,45 @@
+##### day1 #####
+07/25
+77°
+101°
+Partly sunny
+c
+Mostly clear
+B
+
+##### day2 #####
+07/26
+77°
+102°
+Mostly sunny
+b
+Mostly clear
+B
+
+##### day3 #####
+07/27
+76°
+102°
+Mostly sunny
+b
+Mostly clear
+B
+
+##### day4 #####
+07/28
+77°
+101°
+Partly sunny
+c
+Mostly clear
+B
+
+##### day5 #####
+07/29
+78°
+101°
+Intermittent clouds
+c
+Partly cloudy
+B
+

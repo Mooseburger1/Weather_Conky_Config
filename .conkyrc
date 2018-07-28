@@ -1,0 +1,185 @@
+# Use Xft?
+use_xft yes
+xftfont DejaVu Sans:size=12
+xftalpha 0.8
+text_buffer_size 2048
+
+# Update interval in seconds
+update_interval 4
+
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+
+own_window yes
+own_window_transparent no
+#own_window_type override
+own_window_type desktop
+#own_window_type normal #use this if you want a nice shadow to appear around conky
+
+# If own_window is yes, these window manager hints may be used
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# Minimum size of text area
+minimum_size 2000
+maximum_width 1000
+
+# Draw shades?
+draw_shades no
+
+# Draw outlines?
+draw_outline no
+
+# Draw borders around text
+draw_borders no
+
+# Draw borders around graphs
+draw_graph_borders no
+
+draw_bar_borders no
+
+# Stippled borders?
+stippled_borders 0
+
+# border margins
+border_margin 5
+
+# border width
+border_width 1
+
+# Default colors and also border colors
+default_color white
+#default_shade_color black
+#default_outline_color grey
+own_window_colour 000000
+
+# Text alignment, other possible values are commented
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+
+# Gap between borders of screen and text
+# same thing as passing -x at command line
+gap_x 20
+gap_y 50
+
+# Subtract file system buffers from used memory?
+no_buffers yes
+
+# set to yes if you want all text to be in uppercase
+uppercase no
+
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 4
+
+# number of net samples to average
+# set to 1 to disable averaging
+net_avg_samples 2
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+
+# Add spaces to keep things from moving about? This only affects certain objects.
+use_spacer none
+
+temperature_unit imperial
+
+own_window_argb_value 10
+own_window_argb_visual yes
+
+
+
+
+
+
+
+
+
+TEXT
+# INITIATE PYTHON SCRIPT FOR ACCUWEATHER API
+${texeci 1500 python3 $HOME/Scripts/Accuweather/accuweather.py}
+
+
+
+# CURRENT DAY WEATHER INFO
+${voffset -70}${font dancing script: size=35}${execpi 60 sed -n '1p' $HOME/Scripts/Accuweather/current_weather}${font century schoolbook: size=35}
+${voffset -30}${font conkyweather: size=100}${execpi 60 sed -n '4p' $HOME/Scripts/Accuweather/current_weather}${offset 400}${voffset -60}${font century schoolbook: size=70}${execpi 60 sed -n '6p' $HOME/Scripts/Accuweather/current_weather}
+${voffset -40}${voffset -40}${font century schoolbook: size=30}${execpi 60 sed -n '3p' $HOME/Scripts/Accuweather/current_weather}
+${voffset -30}${font century schoolbook: size=12}${voffset -30}Updated @ ${font century schoolbook: size=12}${execpi 60 sed -n '2p' $HOME/Scripts/Accuweather/current_weather}
+
+# FUTURE FORECAST
+# Dates
+${font century schoolbook: size=15}${execpi 60 sed -n '2p' $HOME/Scripts/Accuweather/weather_forecast.txt}${offset 140}${font century schoolbook: size=15}${execpi 60 sed -n '11p' $HOME/Scripts/Accuweather/weather_forecast.txt}${offset 140}${font century schoolbook: size=15}${execpi 60 sed -n '20p' $HOME/Scripts/Accuweather/weather_forecast.txt}${offset 140}${font century schoolbook: size=15}${execpi 60 sed -n '29p' $HOME/Scripts/Accuweather/weather_forecast.txt}${offset 140}${font century schoolbook: size=15}${execpi 60 sed -n '38p' $HOME/Scripts/Accuweather/weather_forecast.txt}
+
+# Weather Icons
+${voffset -60}${offset 10}${font conkyweather: size=35}${execpi 60 sed -n '6p' $HOME/Scripts/Accuweather/weather_forecast.txt}
+${offset 230}${voffset -70}${font conkyweather: size=35}${execpi 60 sed -n '15p' $HOME/Scripts/Accuweather/weather_forecast.txt}
+${offset 455}${voffset -80}${font conkyweather: size=35}${execpi 60 sed -n '24p' $HOME/Scripts/Accuweather/weather_forecast.txt}
+${offset 680}${voffset -70}${font conkyweather: size=35}${execpi 60 sed -n '33p' $HOME/Scripts/Accuweather/weather_forecast.txt}
+${offset 910}${voffset -80}${font conkyweather: size=35}${execpi 60 sed -n '42p' $HOME/Scripts/Accuweather/weather_forecast.txt}
+
+# Daily Low Temps
+${voffset -120}${offset 15}${font century schoolbook: size=15}${execpi 60 sed -n '3p' $HOME/Scripts/Accuweather/weather_forecast.txt}
+${offset 250}${voffset -48}${font century schoolbook: size=15}${execpi 60 sed -n '12p' $HOME/Scripts/Accuweather/weather_forecast.txt}
+${offset 475}${voffset -48}${font century schoolbook: size=15}${execpi 60 sed -n '21p' $HOME/Scripts/Accuweather/weather_forecast.txt}
+${offset 700}${voffset -48}${font century schoolbook: size=15}${execpi 60 sed -n '30p' $HOME/Scripts/Accuweather/weather_forecast.txt}
+${offset 920}${voffset -48}${font century schoolbook: size=15}${execpi 60 sed -n '39p' $HOME/Scripts/Accuweather/weather_forecast.txt}
+
+# Daily Hi Temps
+${voffset -70}${offset 15}${font century schoolbook: size=15}${execpi 60 sed -n '4p' $HOME/Scripts/Accuweather/weather_forecast.txt}
+${offset 250}${voffset -48}${font century schoolbook: size=15}${execpi 60 sed -n '13p' $HOME/Scripts/Accuweather/weather_forecast.txt}
+${offset 475}${voffset -48}${font century schoolbook: size=15}${execpi 60 sed -n '22p' $HOME/Scripts/Accuweather/weather_forecast.txt}
+${offset 700}${voffset -48}${font century schoolbook: size=15}${execpi 60 sed -n '31p' $HOME/Scripts/Accuweather/weather_forecast.txt}
+${offset 920}${voffset -48}${font century schoolbook: size=15}${execpi 60 sed -n '40p' $HOME/Scripts/Accuweather/weather_forecast.txt}
+
+
+
+# MEMORY
+${font century schoolbook:size=10}RAM $alignc $mem / $memmax $alignr $memperc%
+$membar
+${font century schoolbook:size=10}HD $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /}%
+${fs_bar /}
+
+
+# GRAPHS
+${voffset 100}${downspeedgraph wlp2s0 150,300 FFFFFF 7f8ed3 2441KiB -l -t}${offset 50}${upspeedgraph wlp2s0 150,300 FFFFFF 7f8ed3 2441KiB -l -t}${offset 50}${cpugraph 150,300 FFFFFF 7f8ed3}
+
+# GRAPH VALUES
+${voffset -40}${offset 75}${font century schoolbook: size=10}Down: ${downspeed wlp2s0}
+${voffset -35}${font century schoolbook: size=10}${offset 430}Up: ${upspeed wlp2s0}
+${voffset -35}${font century schoolbook: size=10}${offset 800}CPU: ${cpu}%
+
+
+# Word of the day
+${voffset 100}${font dancing script: size=25}Word of the Day
+${voffset -30}${hr 4}
+${voffset -30}${font century schoolbook: size=20}${texeci 100 python3 $HOME/Scripts/Word_of_the_day/word_of_the_day.py}
+${font century schoolbook: size=10}${texeci 100 python3 $HOME/Scripts/Word_of_the_day/word_of_the_day_definition.py}
+
+${color ffffff}${font century schoolbook: size=10}${execpi 60 sed -n '7p' $HOME/Scripts/Accuweather/current_weather}
+
+
+# NOTES
+# TO DETERMINE WIFI OR WLAN SETTINGS TYPE IN TERMINAL: nmcli dev status
+# IF THERE IS AN ERROR MESSAGE AT THE BOTTOM OF THE CONKY THEN YOU PROBABLY HAVE EXCEEDED YOUR API REQUEST LIMIT FOR THE DAY
+# DECREASE THE EXECUTION TIME FOR THE ACCUWEATHER PYTHON SCRIPT IN THIS CONKY CONFIG
+# YOU NEED TO DOWNLOAD "DANCING SCRIPT" FONT FOR "WORD OF THE DAY" TO BE WRITTEN IN CURSIVE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
