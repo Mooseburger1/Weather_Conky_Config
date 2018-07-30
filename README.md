@@ -27,6 +27,7 @@ This is a conky config I created that is simple, not overbearing and useful. It 
 --------------------------------------------
 You can obtain your own API key by going to https://developer.accuweather.com/ and registering in the upper right hand corner. Again I stuck with the free API key, but you can get the paid for api if you so choose. Once you've obtained your API key, copy it and navigate to the accuweather.py script file in the Accuweather folder. Open it with any editing program, and where it says *"Enter your own Accuweather API key here"* paste your API key there. After you have pasted your API key, you need to insert you city code in the line underneathe that line where it says *"Enter the Accuweather city code for your city here"*. The easiest way to get this city code is to go to the main accuweather website and do a weather search for your city. Once the weather forecast has loaded for your city, look in the URL link. At the end of the URL with be a number - this number is your city code. Copy this code and past it in the appropriate spot in the accuweather.py script file. For example, when I search for weather in austin, the URL returns:
 > https://www.accuweather.com/en/us/austin-tx/78701/weather-forecast/351193
+
 So I would paste 351193 into the script file
 
 # <a name = 'setup'>Setup</a>
